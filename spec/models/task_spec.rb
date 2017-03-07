@@ -14,4 +14,36 @@ RSpec.describe Task, type: :model do
       expect(task.complete).to eq(true)
     end
   end
+
+  describe '#toggle_favorite!' do
+    it "should switch favorite to false if it began as true" do
+      task = Task.new(favorite: true)
+      task.toggle_favorite!
+      expect(task.favorite).to eq(false)
+    end
+
+    it "should switch favorite to true if it began as true" do
+      task = Task.new(favorite: false)
+      task.toggle_favorite!
+      expect(task.favorite).to eq(true)
+    end
+
+  end
+
+  describe "#increment_priority!" do
+    it 'should increment the priority of a task ' do
+    task = Task.new(priority: 9)
+    task.increment_priority!
+    expect(task.priority).to eq(10)
+    end
+  end
+
+    describe "#increment_priority!" do
+    it 'should increment the priority of a task ' do
+    task = Task.new(priority: 9)
+    task.increment_priority!
+    expect(task.priority).to eq(10)
+    end
+  end
+
 end
